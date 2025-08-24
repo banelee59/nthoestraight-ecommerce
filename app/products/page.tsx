@@ -113,26 +113,26 @@ export default function ProductsPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="flex items-center mb-8">
-          <Link href="/" className="mr-4">
-            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+        <div className="flex flex-col sm:flex-row sm:items-center mb-6 sm:mb-8 gap-4 sm:gap-0">
+          <Link href="/" className="sm:mr-4">
+            <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground w-full sm:w-auto">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Home
             </Button>
           </Link>
-          <div>
-            <h1 className="text-3xl font-bold text-foreground">Our Collection</h1>
-            <p className="text-muted-foreground">Discover authentic Johannesburg streetwear</p>
+          <div className="flex-1">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground">Our Collection</h1>
+            <p className="text-sm sm:text-base text-muted-foreground">Discover authentic Johannesburg streetwear</p>
           </div>
         </div>
 
         {/* Filters */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-8 p-4 bg-card rounded-lg border border-border">
+        <div className="flex flex-col gap-4 mb-6 sm:mb-8 p-3 sm:p-4 bg-card rounded-lg border border-border">
           <div className="flex items-center gap-2">
             <Filter className="w-4 h-4 text-muted-foreground" />
             <span className="text-sm font-medium text-foreground">Filter & Sort:</span>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 flex-1">
+          <div className="flex flex-col gap-3 sm:gap-4 sm:flex-row sm:flex-1">
             <Select value={selectedCategory} onValueChange={setSelectedCategory}>
               <SelectTrigger className="w-full sm:w-48">
                 <SelectValue placeholder="Category" />
@@ -154,13 +154,13 @@ export default function ProductsPage() {
               </SelectContent>
             </Select>
           </div>
-          <div className="text-sm text-muted-foreground">
+          <div className="text-xs sm:text-sm text-muted-foreground text-center sm:text-left">
             Showing {sortedProducts.length} of {products.length} products
           </div>
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
           {sortedProducts.map((product) => (
             <Card key={product.id} className="group cursor-pointer hover:shadow-lg transition-shadow">
               <CardContent className="p-0">
@@ -171,12 +171,12 @@ export default function ProductsPage() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-4 left-4">
+                  <div className="absolute top-3 sm:top-4 left-3 sm:left-4">
                     <Badge
                       className={
                         product.badgeColor === "accent"
-                          ? "bg-accent text-accent-foreground"
-                          : "bg-secondary text-secondary-foreground"
+                          ? "bg-accent text-accent-foreground text-xs"
+                          : "bg-secondary text-secondary-foreground text-xs"
                       }
                     >
                       {product.badge}
@@ -188,23 +188,23 @@ export default function ProductsPage() {
                     </div>
                   )}
                 </div>
-                <div className="p-4">
-                  <h3 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
+                <div className="p-3 sm:p-4">
+                  <h3 className="font-semibold text-foreground mb-2 group-hover:text-accent transition-colors text-sm sm:text-base">
                     {product.name}
                   </h3>
-                  <p className="text-muted-foreground text-sm mb-3">{product.description}</p>
+                  <p className="text-muted-foreground text-xs sm:text-sm mb-3">{product.description}</p>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-xl font-bold text-foreground">R{product.price}</span>
+                    <span className="text-lg sm:text-xl font-bold text-foreground">R{product.price}</span>
                     <div className="text-xs text-muted-foreground">
                       {product.category === "t-shirts" ? "Sizes: S-XXL" : "Sizes: 28-38"}
                     </div>
                   </div>
-                  <div className="flex gap-2">
+                  <div className="flex flex-col sm:flex-row gap-2">
                     <Link href={`/products/${product.id}`} className="flex-1">
                       <Button
                         variant="outline"
                         size="sm"
-                        className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent"
+                        className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent text-xs sm:text-sm"
                       >
                         View Details
                       </Button>
@@ -212,7 +212,7 @@ export default function ProductsPage() {
                     <Button
                       size="sm"
                       disabled={!product.inStock}
-                      className="bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50"
+                      className="bg-primary text-primary-foreground hover:bg-primary/90 disabled:opacity-50 w-full sm:w-auto"
                     >
                       <ShoppingCart className="w-4 h-4" />
                     </Button>
