@@ -1,0 +1,127 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color tokens to match Ntho'estraight brand aesthetic */
+  --background: #e5e5e5; /* Light Grey for overall background */
+  --foreground: #3b3b3b; /* Charcoal Black for primary text */
+  --card: #ffffff; /* White for card backgrounds */
+  --card-foreground: #3b3b3b; /* Charcoal Black for card text */
+  --popover: #ffffff; /* White for popovers */
+  --popover-foreground: #3b3b3b; /* Charcoal Black for popover text */
+  --primary: #3b3b3b; /* Charcoal Black for call-to-action buttons */
+  --primary-foreground: #ffffff; /* White text on primary buttons */
+  --secondary: #a0522d; /* Sienna for secondary elements */
+  --secondary-foreground: #ffffff; /* White text on secondary buttons */
+  --muted: #d3b9a0; /* Pale Beige for muted text */
+  --muted-foreground: #3b3b3b; /* Charcoal Black for muted text */
+  --accent: #a0522d; /* Sienna for accent elements */
+  --accent-foreground: #ffffff; /* White text on accent elements */
+  --destructive: #ea580c; /* Bright orange for error states */
+  --destructive-foreground: #ffffff; /* White text on error messages */
+  --border: #c0c0c0; /* Light grey for borders */
+  --input: #ffffff; /* White for input fields */
+  --ring: #a0522d; /* Sienna for focus rings */
+  --chart-1: #a0522d; /* Sienna */
+  --chart-2: #d3b9a0; /* Pale Beige */
+  --chart-3: #3b3b3b; /* Charcoal Black */
+  --chart-4: #e5e5e5; /* Light Grey */
+  --chart-5: #ffffff; /* White */
+  --radius: 0.5rem; /* For rounded corners */
+  --sidebar: #ffffff; /* White for sidebar background */
+  --sidebar-foreground: #3b3b3b; /* Charcoal Black for sidebar text */
+  --sidebar-primary: #a0522d; /* Sienna for primary sidebar elements */
+  --sidebar-primary-foreground: #ffffff; /* White text on primary sidebar elements */
+  --sidebar-accent: #d3b9a0; /* Pale Beige for sidebar accents */
+  --sidebar-accent-foreground: #3b3b3b; /* Charcoal Black for sidebar accent text */
+  --sidebar-border: #c0c0c0; /* Light grey for sidebar borders */
+  --sidebar-ring: #a0522d; /* Sienna for sidebar focus rings */
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #e5e5e5;
+  --card: #2a2a2a;
+  --card-foreground: #e5e5e5;
+  --popover: #2a2a2a;
+  --popover-foreground: #e5e5e5;
+  --primary: #e5e5e5;
+  --primary-foreground: #1a1a1a;
+  --secondary: #a0522d;
+  --secondary-foreground: #ffffff;
+  --muted: #3a3a3a;
+  --muted-foreground: #a0a0a0;
+  --accent: #a0522d;
+  --accent-foreground: #ffffff;
+  --destructive: #ea580c;
+  --destructive-foreground: #ffffff;
+  --border: #3a3a3a;
+  --input: #2a2a2a;
+  --ring: #a0522d;
+  --chart-1: #a0522d;
+  --chart-2: #d3b9a0;
+  --chart-3: #e5e5e5;
+  --chart-4: #3a3a3a;
+  --chart-5: #2a2a2a;
+  --sidebar: #1a1a1a;
+  --sidebar-foreground: #e5e5e5;
+  --sidebar-primary: #a0522d;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #3a3a3a;
+  --sidebar-accent-foreground: #e5e5e5;
+  --sidebar-border: #3a3a3a;
+  --sidebar-ring: #a0522d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Added DM Sans font family variables */
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
